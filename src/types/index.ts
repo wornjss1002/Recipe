@@ -28,6 +28,7 @@ export interface Step {
 
 export interface Recipe {
   _id: string | ObjectId;
+  title_img: string;
   title: string;
   description: string;
   ingredients: Ingredient[];

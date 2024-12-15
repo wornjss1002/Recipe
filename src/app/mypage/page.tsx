@@ -40,7 +40,7 @@ export default async function MyPage() {
               <p className="text-gray-600 mb-4">{recipe.description}</p>
               <div className="flex items-center gap-4">
                 <Link
-                  href={`/recipes/${recipe._id.toString()}`}
+                  href={`/recipe/${recipe._id.toString()}`}
                   className="text-blue-500 hover:text-blue-600"
                 >
                   자세히 보기

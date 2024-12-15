@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import ImageUpload from "./ImageUpload";
+import ImageUpload from "./ImageUpload"; // ImageUpload 컴포넌트를 임포트
 
 export default function RecipeForm() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
+    titleImage: "", // 타이틀 이미지를 저장할 필드 추가
     ingredients: [{ name: "", quantity: "", unit: "" }],
     steps: [{ description: "", imageUrl: "" }],
     tips: [""],
@@ -69,6 +70,19 @@ export default function RecipeForm() {
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
       <div className="space-y-6">
+        {/* 타이틀 이미지 업로드 폼 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            타이틀 이미지
+          </label>
+          <ImageUpload
+            stepIndex={0}
+            onUpload={(url: string) =>
+              setFormData({ ...formData, titleImage: url })
+            }
+          />
+        </div>
+
         <div>
           <label className="block text-sm font-medium text-gray-700">
             레시피 제목

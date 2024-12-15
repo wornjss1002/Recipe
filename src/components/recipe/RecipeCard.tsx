@@ -15,13 +15,13 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
     recipe.images && recipe.images.length > 0
       ? (recipe.images[0] as RecipeImage).imageUrl
       : defaultImage;
-
+  const title_imgUrl = recipe.title_img;
   return (
     <Link href={`/recipe/${recipe._id}`} className="block max-w-3xl mx-auto">
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
         <div className="relative w-full aspect-[4/3]">
           <Image
-            src={imageUrl}
+            src={recipe.title_img}
             alt={recipe.title || "레시피 이미지"}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
